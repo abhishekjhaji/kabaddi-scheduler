@@ -1,11 +1,14 @@
-'use strict';
+(function(){
+    'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('kabbaddiScheduler', [
-  'ngRoute'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+    angular.module('kabbaddiScheduler', [
+        'ngRoute',
+        'kabbaddiScheduler.addTeam'
+    ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+        $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/'});
-}]);
+        $routeProvider.otherwise({redirectTo: '/'});
+    }]);
+
+})();
+
