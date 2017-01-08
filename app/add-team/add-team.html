@@ -1,26 +1,39 @@
 <div class="container">
     <div class="well">
         <form class="form-inline" name="newTeamForm">
-            <div class="form-group">
-                <label class="sr-only" for="newTeamName">Team Name</label>
-                <input type="text" class="form-control" id="newTeamName" placeholder="Team Name" ng-model="vm.newTeam.name">
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="newTeamLocation">Location</label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="newTeamLocation"
-                        placeholder="Location"
-                        ng-model="vm.newTeam.location">
-            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="sr-only" for="newTeamName">Team Name</label>
+                        <input type="text" class="form-control" id="newTeamName" placeholder="Team Name" ng-model="vm.newTeam.name">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="newTeamLocation">Location</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="newTeamLocation"
+                                placeholder="Location"
+                                ng-model="vm.newTeam.location">
+                    </div>
 
-            <button type="submit" class="btn btn-default" ng-click="vm.addTeam()">Add</button>
+                    <button type="submit" class="btn btn-default" ng-click="vm.addTeam()">Add</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="generate">Auto Generate</label>
+                        <input type="number" class="form-control"  id="generate"  ng-model="vm.autoGenerateCount">
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click="vm.generateTeams()">Add</button>
+                </div>
+            </div>
         </form>
     </div>
     <div ng-if="vm.teams().length">
-        <div class="page-header">
-            <h3>Added Teams</h3>
+        <div class="page-header row">
+            <h3>Added Teams
+                <a class="btn btn-primary btn-md pull-right" href="#!/fixtures" role="button">Create Fixtures</a>
+            </h3>
         </div>
         <div class="table-responsive">
             <table class="table table-striped" >
@@ -34,6 +47,5 @@
                 </tr>
             </table>
         </div>
-
     </div>
 </div>

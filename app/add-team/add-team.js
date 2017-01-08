@@ -13,33 +13,32 @@
 
         .controller('AddTeamCtrl', function (Teams) {
             var vm = this;
+            vm.autoGenerateCount = 6;
 
-            vm.addTeam = function(){
+            vm.addTeam = function () {
                 Teams.add(vm.newTeam);
                 resetNewTeam();
+            };
+
+            vm.generateTeams = function () {
+                Teams.clearAll();
+                for (var i = 1; i <= vm.autoGenerateCount; i++) {
+                    Teams.add({
+                        name: 'Team ' + i,
+                        location: 'Location ' + i
+                    });
+                }
             };
 
             vm.teams = Teams.all;
 
             resetNewTeam();
 
-            function resetNewTeam(){
+            function resetNewTeam() {
                 vm.newTeam = {
-                    name : null,
-                    location : null
+                    name: null,
+                    location: null
                 };
             }
-        })
-
-        .factory('Teams', function (){
-            var teams = [];
-            return {
-                add : function(newTeam){
-                    teams.push(newTeam);
-                },
-                all : function(){
-                    return teams;
-                }
-            };
         });
 })();
