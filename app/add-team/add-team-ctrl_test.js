@@ -4,6 +4,7 @@
     describe("AddTeamCtrl", function(){
         var AddTeamCtrl;
 
+        beforeEach(module('kabbaddiScheduler'));
         beforeEach(module('kabbaddiScheduler.addTeam'));
         beforeEach(inject(function ($controller) {
             AddTeamCtrl = $controller('AddTeamCtrl');
