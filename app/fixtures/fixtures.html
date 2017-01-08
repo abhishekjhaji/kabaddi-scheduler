@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="page-header">
+        <h3>Fixtures</h3>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped" >
+            <thead>
+            <th>Day No</th><th>Matches</th>
+            </thead>
+            <tr ng-repeat="fixture in vm.fixtures">
+                <td>{{$index+1}}</td>
+                <td>
+                    <span ng-repeat="match in fixture.matches">
+                        <span class="label label-primary">{{match.homeTeam.name}}</span>
+                         <b>vs </b>
+                        <span class="label label-primary">{{match.guestTeam.name}}</span>
+                        at <b>{{match.homeTeam.location}}</b>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
